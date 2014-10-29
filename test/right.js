@@ -53,6 +53,14 @@ describe('right.js', function () {
     prtlApplied('equal');
   });
 
+  it('Should return result.', function () {
+    var prtlApplied = right(obj, function (prop) {
+      return this[prop];
+    })();
+
+    assert.equal(prtlApplied('test'), obj['test']);
+  });
+
 });
 
 

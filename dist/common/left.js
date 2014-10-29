@@ -34,7 +34,7 @@ module.exports = function (context, fn) {
   var params = _.normalize(arguments);
 
   return _.callWrap(function (args1, args2) {
-    params.fn.apply(params.context, args1.concat(args2));
+    return params.fn.apply(params.context, args1.concat(args2));
   });
 };
 

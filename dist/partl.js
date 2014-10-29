@@ -95,7 +95,7 @@ utils = function () {
       var args1 = _.toArray(args);
       return function () {
         var args2 = _.toArray(arguments);
-        onCall.call(this, args1, args2);
+        return onCall.call(this, args1, args2);
       };
     },
     /**
@@ -145,7 +145,7 @@ left = function (_) {
   return function (context, fn) {
     var params = _.normalize(arguments);
     return _.callWrap(function (args1, args2) {
-      params.fn.apply(params.context, args1.concat(args2));
+      return params.fn.apply(params.context, args1.concat(args2));
     });
   };
 }(utils);
@@ -180,7 +180,7 @@ right = function (_) {
   return function () {
     var params = _.normalize(arguments);
     return _.callWrap(function (args1, args2) {
-      params.fn.apply(params.context, args2.concat(args1));
+      return params.fn.apply(params.context, args2.concat(args1));
     });
   };
 }(utils);
@@ -214,7 +214,7 @@ applyLeft = function (_) {
   return function () {
     var params = _.normalize(arguments);
     return _.applyWrap(function (args1, args2) {
-      params.fn.apply(params.context, args1.concat(args2));
+      return params.fn.apply(params.context, args1.concat(args2));
     });
   };
 }(utils);
@@ -248,7 +248,7 @@ applyRight = function (_) {
   return function () {
     var params = _.normalize(arguments);
     return _.applyWrap(function (args1, args2) {
-      params.fn.apply(params.context, args2.concat(args1));
+      return params.fn.apply(params.context, args2.concat(args1));
     });
   };
 }(utils);

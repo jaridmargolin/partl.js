@@ -53,6 +53,14 @@ describe('applyLeft.js', function () {
     prtlApplied('equal');
   });
 
+  it('Should return result.', function () {
+    var prtlApplied = applyLeft(obj, function (prop) {
+      return this[prop];
+    })();
+
+    assert.equal(prtlApplied('test'), obj['test']);
+  });
+
 });
 
 

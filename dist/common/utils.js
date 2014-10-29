@@ -91,7 +91,7 @@ var _ = {
     var args1 = _.toArray(args);
     return function () {
       var args2 = _.toArray(arguments);
-      onCall.call(this, args1, args2);
+      return onCall.call(this, args1, args2);
     };
   },
 

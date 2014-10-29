@@ -33,7 +33,7 @@ module.exports = function () {
   var params = _.normalize(arguments);
 
   return _.applyWrap(function (args1, args2) {
-    params.fn.apply(params.context, args2.concat(args1));
+    return params.fn.apply(params.context, args2.concat(args1));
   });
 };
 
